@@ -1,0 +1,37 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class Loading extends JWindow {
+    //CHANGE DESIGN WHEN NEEDED
+    public Loading() {
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.DARK_GRAY);
+        panel.setLayout(new BorderLayout());
+
+        JLabel title = new JLabel("Loading Skibidi Scheduler...", SwingConstants.CENTER);
+        title.setFont(new Font("Arial", Font.BOLD, 22));
+        title.setForeground(Color.WHITE);
+
+        JProgressBar progress = new JProgressBar();
+        progress.setIndeterminate(true); // animated loading bar
+
+        panel.add(title, BorderLayout.CENTER);
+        panel.add(progress, BorderLayout.SOUTH);
+
+        this.add(panel);
+        this.setSize(400, 200);
+        this.setLocationRelativeTo(null); // center
+    }
+
+    public void showSplash() {
+        setVisible(true);
+
+        // 2500 = 2.5s
+        try { Thread.sleep(2500); }
+        catch (InterruptedException e) { e.printStackTrace(); }
+
+        setVisible(false);
+        dispose();
+    }
+}
+
